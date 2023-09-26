@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
+import { mockTransactionsPositive, mockTransactionsNegative } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
@@ -13,6 +13,7 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import { useEffect, useState } from "react";
+import { ThumbUp, VideoLibrary, Visibility } from "@mui/icons-material";
 
 
 const Dashboard = () => {
@@ -42,6 +43,24 @@ const Dashboard = () => {
       });
   }, []);
 
+  const sortedTransactionsPositive = [...mockTransactionsPositive].sort((a, b) => {
+    // Use parseFloat to convert percentage strings to numbers for proper comparison
+    const percentageA = parseFloat(a.percentage);
+    const percentageB = parseFloat(b.percentage);
+
+    // Sort in decreasing order (largest percentage first)
+    return percentageB - percentageA;
+  });
+
+  const sortedTransactionsNegative = [...mockTransactionsNegative].sort((a, b) => {
+    // Use parseFloat to convert percentage strings to numbers for proper comparison
+    const percentageA = parseFloat(a.percentage);
+    const percentageB = parseFloat(b.percentage);
+
+    // Sort in decreasing order (largest percentage first)
+    return percentageB - percentageA;
+  });
+
   return (
     <Box m="40px">
       {/* HEADER */}
@@ -60,7 +79,7 @@ const Dashboard = () => {
         <Box
           borderRadius="8px"
           boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
-          gridColumn="span 3"
+          gridColumn="span 4"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -72,8 +91,8 @@ const Dashboard = () => {
             progress="0.75"
             increase="+14%"
             icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+              <Visibility
+                sx={{ color: colors.black, fontSize: "26px" }}
               />
             }
           />
@@ -81,7 +100,7 @@ const Dashboard = () => {
         <Box
           borderRadius="8px"
           boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
-          gridColumn="span 3"
+          gridColumn="span 4"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -93,8 +112,8 @@ const Dashboard = () => {
             progress="0.50"
             increase="+21%"
             icon={
-              <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+              <ThumbUp
+                sx={{ color: colors.black, fontSize: "26px" }}
               />
             }
           />
@@ -102,8 +121,8 @@ const Dashboard = () => {
         <Box
           borderRadius="8px"
           boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
+          gridColumn="span 4"
+          backgroundColor={colors.white}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -114,34 +133,12 @@ const Dashboard = () => {
             progress="0.30"
             increase="+5%"
             icon={
-              <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+              <VideoLibrary
+                sx={{ color: colors.black, fontSize: "26px" }}
               />
             }
           />
         </Box>
-        <Box
-          borderRadius="8px"
-          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
-            icon={
-              <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
-
         {/* ROW 2 */}
         <Box
           borderRadius="8px"
@@ -164,23 +161,16 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Total Views Overtime
-              </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                59,342
+                Product Trends Overtime
               </Typography>
             </Box>
-            <Box>
+            {/* <Box>
               <IconButton>
                 <DownloadOutlinedIcon
                   sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
                 />
               </IconButton>
-            </Box>
+            </Box> */}
           </Box>
           <Box height="250px" m="-20px 0 0 0">
             <LineChart isDashboard={true} />
@@ -189,25 +179,25 @@ const Dashboard = () => {
         <Box
           borderRadius="8px"
           boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn="span 2"
+          gridRow="span 4"
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
           <Box
-            
+            backgroundColor={colors.redAccent[400]}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.greenAccent[500]}`}
             colors={colors.grey[100]}
             p="15px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+            <Typography color={colors.white} variant="h5" fontWeight="600">
+              Positive
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {sortedTransactionsPositive.map((transaction, i) => (
             <Box
             
               key={`${transaction.txId}-${i}`}
@@ -222,21 +212,79 @@ const Dashboard = () => {
                 <Typography
                   color={colors.greenAccent[500]}
                   variant="h5"
+                  overflow-x-hidden="true"
+                  width="70%"
                   fontWeight="600"
                 >
-                  {transaction.txId}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {transaction.tag}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
               <Box
-                backgroundColor={colors.greenAccent[500]}
+                fontSize="1.15rem"
                 p="5px 10px"
+                color={"black"}
+                fontWeight="600"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                {transaction.percentage}
+              </Box>
+            </Box>
+          ))}
+        </Box>
+
+        <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
+          gridColumn="span 2"
+          gridRow="span 4"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+        >
+          <Box
+            
+            backgroundColor={colors.blueAccent[400]}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            borderBottom={`4px solid ${colors.greenAccent[500]}`}
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Negative
+            </Typography>
+          </Box>
+          {sortedTransactionsNegative.map((transaction, i) => (
+            <Box
+
+              key={`${transaction.txId}-${i}`}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              p="15px"
+            >
+              <Box>
+      
+                <Typography
+                  color={colors.greenAccent[500]}
+                  variant="h5"
+                  overflow-x-hidden="true"
+                  width="70%"
+                  fontWeight="600"
+                >
+                  {transaction.tag}
+                </Typography>
+              </Box>
+              <Box
+                color={"black"}
+                fontWeight="600"
+                fontSize="1.15rem"
+                width="50px"
+                padding="5px 10px"
+                margin="5px"
+                borderRadius="4px"
+              >
+                {transaction.percentage}
               </Box>
             </Box>
           ))}
@@ -248,57 +296,31 @@ const Dashboard = () => {
           boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[600]}
-          p="30px"
-        >
-          <Typography variant="h5" fontWeight="600">
-            Campaign
-          </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
-          </Box>
-        </Box>
-        <Box
-          borderRadius="8px"
-          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[600]}
+          backgroundColor={colors.white}
         >
           <Typography
             variant="h5"
+            color={colors.black}
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            Platform-wise Sentiment Distribution 
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
           </Box>
         </Box> 
           <Box
-            
+            boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
             borderRadius="8px"
             gridColumn="span 4"
             gridRow="span 2"
-            backgroundColor={colors.primary[600]}
+            backgroundColor={colors.white}
             padding="30px"
           >
           <Typography
             variant="h5"
+            color={colors.black}
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
             >
