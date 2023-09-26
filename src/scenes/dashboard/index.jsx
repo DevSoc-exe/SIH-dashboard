@@ -12,31 +12,41 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import { useEffect, useState } from "react";
+
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  const [totalViews, setTotalViews] = useState();
+  const [totalLikes, setTotalLikes] = useState();
+  const [totalVideos, setTotalVideos] = useState();
+
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(dataNew => {
+        setTotalLikes(dataNew["likeCounter"]);
+        setTotalViews(dataNew["viewCounter"]);
+        setTotalVideos(dataNew["likeCounter"]);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
-    <Box m="20px">
+    <Box m="40px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
+        <Header title="Beta Version" subtitle="Welcome to your dashboard" />
       </Box>
 
       {/* GRID & CHARTS */}
@@ -48,6 +58,8 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -55,8 +67,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
+            title={totalViews}
+            subtitle="Total Views"
             progress="0.75"
             increase="+14%"
             icon={
@@ -67,6 +79,8 @@ const Dashboard = () => {
           />
         </Box>
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -74,8 +88,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
+            title={totalLikes}
+            subtitle="Total Likes"
             progress="0.50"
             increase="+21%"
             icon={
@@ -86,6 +100,8 @@ const Dashboard = () => {
           />
         </Box>
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -93,8 +109,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
+            title={totalVideos}
+            subtitle="Total Videos"
             progress="0.30"
             increase="+5%"
             icon={
@@ -105,6 +121,8 @@ const Dashboard = () => {
           />
         </Box>
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -126,11 +144,14 @@ const Dashboard = () => {
 
         {/* ROW 2 */}
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
           <Box
+            borderRadius="8px"
             mt="25px"
             p="0 30px"
             display="flex "
@@ -143,14 +164,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Total Views Overtime
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,342.32
+                59,342
               </Typography>
             </Box>
             <Box>
@@ -166,12 +187,15 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
           <Box
+            
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -185,6 +209,7 @@ const Dashboard = () => {
           </Box>
           {mockTransactions.map((transaction, i) => (
             <Box
+            
               key={`${transaction.txId}-${i}`}
               display="flex"
               justifyContent="space-between"
@@ -193,6 +218,7 @@ const Dashboard = () => {
               p="15px"
             >
               <Box>
+      
                 <Typography
                   color={colors.greenAccent[500]}
                   variant="h5"
@@ -218,9 +244,11 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.primary[600]}
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
@@ -244,9 +272,11 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
+          borderRadius="8px"
+          boxShadow="0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.primary[600]}
         >
           <Typography
             variant="h5"
@@ -258,18 +288,20 @@ const Dashboard = () => {
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
           </Box>
-        </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          padding="30px"
-        >
+        </Box> 
+          <Box
+            
+            borderRadius="8px"
+            gridColumn="span 4"
+            gridRow="span 2"
+            backgroundColor={colors.primary[600]}
+            padding="30px"
+          >
           <Typography
             variant="h5"
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
-          >
+            >
             Geography Based Traffic
           </Typography>
           <Box height="200px">

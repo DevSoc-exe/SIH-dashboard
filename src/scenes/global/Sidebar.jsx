@@ -17,7 +17,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({ title, to, icon, selected, setSelected, fontSize }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -29,7 +29,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       onClick={() => setSelected(title)}
       icon={icon}
     >
-      <Typography>{title}</Typography>
+      <Typography fontSize={fontSize}>{title}</Typography>
       <Link to={to} />
     </MenuItem>
   );
@@ -79,8 +79,8 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                <Typography  variant="h3" color={colors.grey[100]}>
+                  Menu
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -88,7 +88,7 @@ const Sidebar = () => {
               </Box>
             )}
           </MenuItem>
-
+{/* 
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
@@ -114,46 +114,34 @@ const Sidebar = () => {
                 </Typography>
               </Box>
             </Box>
-          )}
+          )} */}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+          <Box paddingLeft={isCollapsed ? undefined : "5%"}>
             <Item
               title="Dashboard"
               to="/"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
 
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Data
-            </Typography>
-            <Item
-              title="Manage Team"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
+            </Typography> */}
+            
+            {/* This section can be used display channel information             */}
+            {/* <Item
               title="Contacts Information"
               to="/contacts"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
-            <Item
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
+            /> */}
             <Typography
               variant="h6"
               color={colors.grey[300]}
@@ -167,6 +155,7 @@ const Sidebar = () => {
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
             <Item
               title="Calendar"
@@ -174,6 +163,7 @@ const Sidebar = () => {
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
             <Item
               title="FAQ Page"
@@ -181,6 +171,7 @@ const Sidebar = () => {
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
 
             <Typography
@@ -196,6 +187,7 @@ const Sidebar = () => {
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
             <Item
               title="Pie Chart"
@@ -203,6 +195,7 @@ const Sidebar = () => {
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
             <Item
               title="Line Chart"
@@ -210,6 +203,7 @@ const Sidebar = () => {
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
             <Item
               title="Geography Chart"
@@ -217,6 +211,7 @@ const Sidebar = () => {
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
+              fontSize={"16px"}
             />
           </Box>
         </Menu>

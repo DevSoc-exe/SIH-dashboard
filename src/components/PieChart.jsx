@@ -1,11 +1,69 @@
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../data/mockData";
+import { useEffect, useState } from "react";
 
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(dataNew => {
+        console.log(dataNew["commentsData"]);
+
+        if (dataNew["commentsData"] != []) {
+          setData(dataNew["commentsData"]);
+        }
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+  // useEffect(() => {
+
+  //   const storedData = Cookies.get('myDataCookie');
+
+  //   if (storedData) {
+
+  //     const parsedData = JSON.parse(storedData);
+  //     setData(parsedData);
+  //   } else {
+
+  //     fetch('http://127.0.0.1:5000')
+  //       .then(response => {
+  //         if (!response.ok) {
+  //           throw new Error('Network response was not ok');
+  //         }
+  //         return response.json();
+  //       })
+  //       .then(data2 => {
+  //         console.log(data2[0]);
+
+  //         if (data2[0] !== []) {
+  //           setData(data2[0]);
+
+
+  //           Cookies.set('myDataCookie', JSON.stringify(data2[0]), { expires: 7 }); // Set the cookie to expire in 7 days
+  //         }
+  //         console.log(data);
+  //       })
+  //       .catch(error => {
+  //         console.error('Error fetching data:', error);
+  //       });
+  //   }
+  // }, []);
+
   return (
     <ResponsivePie
       data={data}
