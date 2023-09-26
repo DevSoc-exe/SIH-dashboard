@@ -266,134 +266,213 @@ export const mockDataInvoices = [
   },
 ];
 
-export const mockTransactions = [
+export const mockTransactionsPositive = [
   {
     txId: "01e4dsa",
-    user: "johndoe",
-    date: "2021-09-01",
-    cost: "43.95",
+    tag: "iPhone 15",
+    percentage: "85%",
   },
   {
     txId: "0315dsaa",
-    user: "jackdower",
-    date: "2022-04-01",
-    cost: "133.45",
-  },
-  {
-    txId: "01e4dsa",
-    user: "aberdohnny",
-    date: "2021-09-01",
-    cost: "43.95",
-  },
-  {
-    txId: "51034szv",
-    user: "goodmanave",
-    date: "2022-11-05",
-    cost: "200.95",
+    tag: "Samsung Galaxy Fold 3",
+    percentage: "92%",
   },
   {
     txId: "0a123sb",
-    user: "stevebower",
-    date: "2022-11-02",
-    cost: "13.55",
+    tag: "Sony PlayStation 5",
+    percentage: "78%",
   },
   {
-    txId: "01e4dsa",
-    user: "aberdohnny",
-    date: "2021-09-01",
-    cost: "43.95",
+    txId: "51034szv",
+    tag: "MacBook Pro 2022",
+    percentage: "88%",
   },
   {
     txId: "120s51a",
-    user: "wootzifer",
-    date: "2019-04-15",
-    cost: "24.20",
+    tag: "DJI Mavic Air 2",
+    percentage: "91%",
   },
   {
-    txId: "0315dsaa",
-    user: "jackdower",
-    date: "2022-04-01",
-    cost: "133.45",
+    txId: "01e4dsa",
+    tag: "GoPro Hero 10",
+    percentage: "87%",
+  },
+  {
+    txId: "1245zxw",
+    tag: "5G Technology",
+    percentage: "95%",
+  },
+  {
+    txId: "9p8nva1",
+    tag: "Smart Home Devices",
+    percentage: "89%",
+  },
+  {
+    txId: "7a5d9er",
+    tag: "Virtual Reality",
+    percentage: "83%",
+  },
+  {
+    txId: "ab6d0xz",
+    tag: "Artificial Intelligence",
+    percentage: "94%",
+  },
+  {
+    txId: "3c1de7f",
+    tag: "Tesla Model Y",
+    percentage: "90%",
+  },
+  {
+    txId: "v2b0z53",
+    tag: "Foldable Phones",
+    percentage: "86%",
+  },
+  {
+    txId: "k1t2l5a",
+    tag: "Augmented Reality",
+    percentage: "92%",
+  },
+  {
+    txId: "m5b8c2t",
+    tag: "Cryptocurrency",
+    percentage: "88%",
+  },
+  {
+    txId: "x7z5a9l",
+    tag: "SpaceX Starship",
+    percentage: "93%",
   },
 ];
 
+export const mockTransactionsNegative = [
+  {
+    txId: "01e4dsa",
+    tag: "iPhone 15",
+    percentage: "15%",
+  },
+  {
+    txId: "0315dsaa",
+    tag: "Samsung Galaxy Fold 3",
+    percentage: "8%",
+  },
+  {
+    txId: "0a123sb",
+    tag: "Sony PlayStation 5",
+    percentage: "22%",
+  },
+  {
+    txId: "51034szv",
+    tag: "MacBook Pro 2022",
+    percentage: "12%",
+  },
+  {
+    txId: "120s51a",
+    tag: "DJI Mavic Air 2",
+    percentage: "9%",
+  },
+  {
+    txId: "01e4dsa",
+    tag: "GoPro Hero 10",
+    percentage: "13%",
+  },
+  {
+    txId: "1245zxw",
+    tag: "5G Technology",
+    percentage: "5%",
+  },
+  {
+    txId: "9p8nva1",
+    tag: "Smart Home Devices",
+    percentage: "11%",
+  },
+  {
+    txId: "7a5d9er",
+    tag: "Virtual Reality",
+    percentage: "17%",
+  },
+  {
+    txId: "ab6d0xz",
+    tag: "Artificial Intelligence",
+    percentage: "6%",
+  },
+  {
+    txId: "3c1de7f",
+    tag: "Tesla Model Y",
+    percentage: "10%",
+  },
+  {
+    txId: "v2b0z53",
+    tag: "Foldable Phones",
+    percentage: "14%",
+  },
+  {
+    txId: "k1t2l5a",
+    tag: "Augmented Reality",
+    percentage: "8%",
+  },
+  {
+    txId: "m5b8c2t",
+    tag: "Cryptocurrency",
+    percentage: "7%",
+  },
+  {
+    txId: "x7z5a9l",
+    tag: "SpaceX Starship",
+    percentage: "5%",
+  },
+];
+
+
 export const mockBarData = [
   {
-    country: "AD",
-    "hot dog": 137,
-    "hot dogColor": "hsl(229, 70%, 50%)",
-    burger: 96,
-    burgerColor: "hsl(296, 70%, 50%)",
-    kebab: 72,
-    kebabColor: "hsl(97, 70%, 50%)",
-    donut: 140,
-    donutColor: "hsl(340, 70%, 50%)",
+    platform: "Twitter",
+
+    Positive: 96,
+    PositiveColor: "hsl(208, 49%, 29%)",
+    Negative: 72,
+    NegativeColor: "hsl(97, 70%, 50%)",
+    Neutral: 140,
+    NeutralColor: "hsl(340, 70%, 50%)",
   },
   {
-    country: "AE",
-    "hot dog": 55,
-    "hot dogColor": "hsl(307, 70%, 50%)",
-    burger: 28,
-    burgerColor: "hsl(111, 70%, 50%)",
-    kebab: 58,
-    kebabColor: "hsl(273, 70%, 50%)",
-    donut: 29,
-    donutColor: "hsl(275, 70%, 50%)",
+    platform: "Quora",
+    
+    Positive: 28,
+    PositiveColor: "hsl(111, 70%, 50%)",
+    Negative: 58,
+    NegativeColor: "hsl(273, 70%, 50%)",
+    Neutral: 29,
+    NeutralColor: "hsl(275, 70%, 50%)",
   },
   {
-    country: "AF",
-    "hot dog": 109,
-    "hot dogColor": "hsl(72, 70%, 50%)",
-    burger: 23,
-    burgerColor: "hsl(96, 70%, 50%)",
-    kebab: 34,
-    kebabColor: "hsl(106, 70%, 50%)",
-    donut: 152,
-    donutColor: "hsl(256, 70%, 50%)",
+    platform: "Youtube",
+    
+    Positive: 23,
+    PositiveColor: "hsl(96, 70%, 50%)",
+    Negative: 34,
+    NegativeColor: "hsl(106, 70%, 50%)",
+    Neutral: 152,
+    NeutralColor: "hsl(256, 70%, 50%)",
   },
   {
-    country: "AG",
-    "hot dog": 133,
-    "hot dogColor": "hsl(257, 70%, 50%)",
-    burger: 52,
-    burgerColor: "hsl(326, 70%, 50%)",
-    kebab: 43,
-    kebabColor: "hsl(110, 70%, 50%)",
-    donut: 83,
-    donutColor: "hsl(9, 70%, 50%)",
+    platform: "Instagram",
+    
+    Positive: 52,
+    PositiveColor: "hsl(326, 70%, 50%)",
+    Negative: 43,
+    NegativeColor: "hsl(110, 70%, 50%)",
+    Neutral: 83,
+    NeutralColor: "hsl(9, 70%, 50%)",
   },
   {
-    country: "AI",
-    "hot dog": 81,
-    "hot dogColor": "hsl(190, 70%, 50%)",
-    burger: 80,
-    burgerColor: "hsl(325, 70%, 50%)",
-    kebab: 112,
-    kebabColor: "hsl(54, 70%, 50%)",
-    donut: 35,
-    donutColor: "hsl(285, 70%, 50%)",
-  },
-  {
-    country: "AL",
-    "hot dog": 66,
-    "hot dogColor": "hsl(208, 70%, 50%)",
-    burger: 111,
-    burgerColor: "hsl(334, 70%, 50%)",
-    kebab: 167,
-    kebabColor: "hsl(182, 70%, 50%)",
-    donut: 18,
-    donutColor: "hsl(76, 70%, 50%)",
-  },
-  {
-    country: "AM",
-    "hot dog": 80,
-    "hot dogColor": "hsl(87, 70%, 50%)",
-    burger: 47,
-    burgerColor: "hsl(141, 70%, 50%)",
-    kebab: 158,
-    kebabColor: "hsl(224, 70%, 50%)",
-    donut: 49,
-    donutColor: "hsl(274, 70%, 50%)",
+    platform: "Facebook",
+    
+    Positive: 47,
+    PositiveColor: "hsl(141, 70%, 50%)",
+    Negative: 158,
+    NegativeColor: "hsl(224, 70%, 50%)",
+    Neutral: 49,
+    NeutralColor: "hsl(274, 70%, 50%)",
   },
 ];
 
@@ -432,163 +511,163 @@ export const mockPieData = [
 
 export const mockLineData = [
   {
-    id: "japan",
+    id: "Positive",
     color: tokens("dark").greenAccent[500],
     data: [
       {
-        x: "plane",
+        x: "January",
         y: 101,
       },
       {
-        x: "helicopter",
+        x: "February",
         y: 75,
       },
       {
-        x: "boat",
+        x: "March",
         y: 36,
       },
       {
-        x: "train",
+        x: "April",
         y: 216,
       },
       {
-        x: "subway",
+        x: "May",
         y: 35,
       },
       {
-        x: "bus",
+        x: "June",
         y: 236,
       },
       {
-        x: "car",
+        x: "July",
         y: 88,
       },
       {
-        x: "moto",
+        x: "August",
         y: 232,
       },
       {
-        x: "bicycle",
+        x: "September",
         y: 281,
       },
       {
-        x: "horse",
+        x: "October",
         y: 1,
       },
       {
-        x: "skateboard",
+        x: "November",
         y: 35,
       },
       {
-        x: "others",
+        x: "December",
         y: 14,
       },
     ],
   },
   {
-    id: "france",
+    id: "Negative",
     color: tokens("dark").blueAccent[300],
     data: [
       {
-        x: "plane",
+        x: "January",
         y: 212,
       },
       {
-        x: "helicopter",
+        x: "February",
         y: 190,
       },
       {
-        x: "boat",
+        x: "March",
         y: 270,
       },
       {
-        x: "train",
+        x: "April",
         y: 9,
       },
       {
-        x: "subway",
+        x: "May",
         y: 75,
       },
       {
-        x: "bus",
+        x: "June",
         y: 175,
       },
       {
-        x: "car",
+        x: "July",
         y: 33,
       },
       {
-        x: "moto",
+        x: "August",
         y: 189,
       },
       {
-        x: "bicycle",
+        x: "September",
         y: 97,
       },
       {
-        x: "horse",
+        x: "October",
         y: 87,
       },
       {
-        x: "skateboard",
+        x: "November",
         y: 299,
       },
       {
-        x: "others",
+        x: "December",
         y: 251,
       },
     ],
   },
   {
-    id: "us",
+    id: "Neutral",
     color: tokens("dark").redAccent[200],
     data: [
       {
-        x: "plane",
+        x: "January",
         y: 191,
       },
       {
-        x: "helicopter",
+        x: "February",
         y: 136,
       },
       {
-        x: "boat",
+        x: "March",
         y: 91,
       },
       {
-        x: "train",
+        x: "April",
         y: 190,
       },
       {
-        x: "subway",
+        x: "May",
         y: 211,
       },
       {
-        x: "bus",
+        x: "June",
         y: 152,
       },
       {
-        x: "car",
+        x: "July",
         y: 189,
       },
       {
-        x: "moto",
+        x: "August",
         y: 152,
       },
       {
-        x: "bicycle",
+        x: "September",
         y: 8,
       },
       {
-        x: "horse",
+        x: "October",
         y: 197,
       },
       {
-        x: "skateboard",
+        x: "November",
         y: 107,
       },
       {
-        x: "others",
+        x: "December",
         y: 170,
       },
     ],

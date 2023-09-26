@@ -1,4 +1,4 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, Button, useTheme, TextField } from "@mui/material";
 import Header from "../../components/Header";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -10,75 +10,216 @@ import { tokens } from "../../theme";
 const FAQ = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  
+  const customAccordionStyle = {
+    color: 'black',
+  };
+  
   return (
     <Box m="20px">
-      <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
+      <Header title="Feedback" subtitle="Respond to feedback." />
 
-      <Accordion defaultExpanded>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
-            An Important Question
+      <Accordion defaultExpanded 
+        sx={{ 
+          borderRadius: '5px',
+          backgroundColor: 'white'
+          }}>
+        <AccordionSummary 
+          expandIcon={<ExpandMoreIcon />}>
+          <Typography color={colors.black} variant="h5">
+          What is your favorite piece of tech or gadget that you've reviewed or discussed on your channel? Why do you love it?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <TextField
+            style={{ width: '100%' }}
+            id="standard-multiline-static"
+            label="Enter your response below..."
+            multiline
+            rows={4}
+            // placeholder="Enter your feedback here..."
+            variant="standard"
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
+            InputProps={{
+              style: { color: 'black' },
+            }}
+          />
+          <Box
+            mt={"20px"}
+            >
+            <Button 
+              style={{
+                backgroundColor: `${colors.blueAccent[100]}`,
+                fontWeight: '800',
+
+              }} 
+              variant="contained">Reply</Button>
+          </Box>
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded 
+        sx={{ 
+          borderRadius: '5px',
+          backgroundColor: 'white'
+          }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
-            Another Important Question
+          <Typography color={colors.black} variant="h5">
+          Tech trends are constantly evolving. How do you stay up-to-date with the latest developments in the tech world?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <TextField
+            style={{ width: '100%' }}
+            id="standard-multiline-static"
+            label="Enter your response below..."
+            multiline
+            rows={4}
+            // placeholder="Enter your feedback here..."
+            variant="standard"
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
+            InputProps={{
+              style: { color: 'black' },
+            }}
+          />
+          <Box
+            mt={"20px"}
+            >
+            <Button 
+              style={{
+                backgroundColor: `${colors.blueAccent[100]}`,
+                fontWeight: '800',
+
+              }} 
+              variant="contained">Reply</Button>
+          </Box>
+          
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded 
+        sx={{ 
+          borderRadius: '5px',
+          backgroundColor: 'white'
+          }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
-            Your Favorite Question
+          <Typography color={colors.black} variant="h5">
+          What do you think is the next big thing in the tech industry? Any predictions or trends you're excited about?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <TextField
+            style={{ width: '100%' }}
+            id="standard-multiline-static"
+            label="Enter your response below..."
+            multiline
+            rows={4}
+            // placeholder="Enter your feedback here..."
+            variant="standard"
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
+            InputProps={{
+              style: { color: 'black' },
+            }}
+          />
+          <Box
+            mt={"20px"}
+            >
+            <Button 
+              style={{
+                backgroundColor: `${colors.blueAccent[100]}`,
+                fontWeight: '800',
+
+              }} 
+              variant="contained">Reply</Button>
+          </Box>
+          
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded 
+        sx={{ 
+          borderRadius: '5px',
+          backgroundColor: 'white'
+          }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
-            Some Random Question
+          <Typography color={colors.black} variant="h5">
+          Your YouTube channel has grown significantly. How do you engage with your audience and build a community around your content?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <TextField
+            style={{ width: '100%' }}
+            id="standard-multiline-static"
+            label="Enter your response below..."
+            multiline
+            rows={4}
+            // placeholder="Enter your feedback here..."
+            variant="standard"
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
+            InputProps={{
+              style: { color: 'black' },
+            }}
+          />
+          <Box
+            mt={"20px"}
+            >
+            <Button 
+              style={{
+                backgroundColor: `${colors.blueAccent[100]}`,
+                fontWeight: '800',
+
+              }} 
+              variant="contained">Reply</Button>
+          </Box>
+          
         </AccordionDetails>
       </Accordion>
-      <Accordion defaultExpanded>
+      <Accordion defaultExpanded 
+        sx={{ 
+          borderRadius: '5px',
+          backgroundColor: 'white'
+          }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color={colors.greenAccent[500]} variant="h5">
-            The Final Question
+          <Typography color={colors.black} variant="h5">
+          Can you share your thoughts on the impact of artificial intelligence on various industries? How do you see AI evolving in the coming years?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <TextField
+            style={{ width: '100%' }}
+            id="standard-multiline-static"
+            label="Enter your response below..."
+            multiline
+            rows={4}
+            // placeholder="Enter your feedback here..."
+            variant="standard"
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
+            InputProps={{
+              style: { color: 'black' },
+            }}
+          />
+          <Box
+            mt={"20px"}
+            >
+            <Button 
+              style={{
+                backgroundColor: `${colors.blueAccent[100]}`,
+                fontWeight: '800',
+
+              }} 
+              variant="contained">Reply</Button>
+          </Box>
+          
         </AccordionDetails>
       </Accordion>
+      
     </Box>
   );
 };

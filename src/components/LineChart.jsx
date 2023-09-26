@@ -14,17 +14,17 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         axis: {
           domain: {
             line: {
-              stroke: colors.grey[100],
+              stroke: colors.black,
             },
           },
           legend: {
             text: {
-              fill: colors.grey[100],
+              fill: colors.greenAccent[100],
             },
           },
           ticks: {
             line: {
-              stroke: colors.grey[100],
+              stroke: colors.black,
               strokeWidth: 1,
             },
             text: {
@@ -34,12 +34,12 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         },
         legends: {
           text: {
-            fill: colors.grey[100],
+            fill: colors.black,
           },
         },
         tooltip: {
           container: {
-            color: colors.primary[500],
+            color: colors.black,
           },
         },
       }}
@@ -62,7 +62,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation", // added
+        legend: isDashboard ? undefined : "Months", // added
         legendOffset: 36,
         legendPosition: "middle",
       }}
@@ -72,7 +72,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "count", // added
+        legend: isDashboard ? undefined : "Number of Impressions", // added
         legendOffset: -40,
         legendPosition: "middle",
       }}
