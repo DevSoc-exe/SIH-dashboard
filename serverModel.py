@@ -297,21 +297,21 @@ def runmain():
 
     # forming the data for sending
     postive = {
-        'id': "postive",
+        'id': "Postive",
         'label': "postive",
         'value': positiveComments,
         'color': "hsl(291, 70%, 50%)",
     }
 
     neutral = {
-        'id': "neutral",
+        'id': "Neutral",
         'label': "neutral",
         'value': neutralComments,
         'color': "hsl(162, 70%, 50%)",
     }
 
     negative = {
-        'id': "negative",
+        'id': "Negative",
         'label': "negative",
         'value': negetiveComments,
         'color': "hsl(162, 70%, 50%)",

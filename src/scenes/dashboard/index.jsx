@@ -20,9 +20,9 @@ const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [totalViews, setTotalViews] = useState();
-  const [totalLikes, setTotalLikes] = useState();
-  const [totalVideos, setTotalVideos] = useState();
+  const [totalViews, setTotalViews] = useState("fetching...");
+  const [totalLikes, setTotalLikes] = useState("fetching...");
+  const [totalVideos, setTotalVideos] = useState("fetching...");
 
 
   useEffect(() => {
@@ -34,14 +34,20 @@ const Dashboard = () => {
         return response.json();
       })
       .then(dataNew => {
+        console.log(dataNew);
         setTotalLikes(dataNew["likeCounter"]);
         setTotalViews(dataNew["viewCounter"]);
-        setTotalVideos(dataNew["likeCounter"]);
+        setTotalVideos(dataNew["videoCounter"]);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
+    
+    console.log('Component rendered');
   }, []);
+
+  console.log('Outer Component rendered');
+
 
   const sortedTransactionsPositive = [...mockTransactionsPositive].sort((a, b) => {
     // Use parseFloat to convert percentage strings to numbers for proper comparison
