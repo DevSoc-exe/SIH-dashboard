@@ -7,7 +7,24 @@ const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{
+    id: "positive",
+    label: "Nositive",
+    value: 33.333,
+    color: "hsl(104, 70%, 50%)",
+  },
+  {
+    id: "negetive",
+    label: "Negetive",
+    value: 33.333,
+    color: "hsl(162, 70%, 50%)",
+  },
+  {
+    id: "neutral",
+    label: "Neutral",
+    value: 33.333,
+    color: "hsl(291, 70%, 50%)",
+  }]);
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000')
@@ -18,10 +35,10 @@ const PieChart = () => {
         return response.json();
       })
       .then(dataNew => {
-        console.log(dataNew["commentsData"]);
+        console.log(dataNew["commentsData"][0]);
 
-        if (dataNew["commentsData"] != []) {
-          setData(dataNew["commentsData"]);
+        if (dataNew["commentsData"][0] != []) {
+          setData(dataNew["commentsData"][0]);
         }
         console.log(data);
       })
